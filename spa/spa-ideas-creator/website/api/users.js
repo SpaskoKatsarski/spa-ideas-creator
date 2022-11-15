@@ -7,6 +7,7 @@ const logoutUrl = 'http://localhost:3030/users/logout';
 document.getElementById('logoutNav').addEventListener('click', onLogout);
 
 async function onLogout() {
+    debugger;
     const data = await logout();
     
     if (data.ok) {
@@ -21,7 +22,10 @@ async function logout() {
     const token = JSON.parse(sessionStorage.getItem('user')).accessToken;
 
     const response = await fetch(logoutUrl, {
-        'X-Authorization': token
+        method: 'get',
+        headers: {
+            'X-Authorization': token
+        }
     });
     const data = await response.json();
 
@@ -79,6 +83,7 @@ export async function onRegister(e) {
 }
 
 async function register(body, url) {
+    debugger;
     const response = await fetch(url, {
         method: 'post',
         headers: {
