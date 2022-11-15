@@ -1,5 +1,5 @@
 import { views } from '../router.js';
-//TODO uncomment the resets
+
 const registerUrl = 'http://localhost:3030/users/register';
 const loginUrl = 'http://localhost:3030/users/login';
 const logoutUrl = 'http://localhost:3030/users/logout';
@@ -38,7 +38,7 @@ export async function onLogin(e) {
     const formData = new FormData(e.target);
     const { email, password } = Object.fromEntries(formData);
 
-    // document.getElementById('register-form').reset();
+    document.getElementById('register-form').reset();
 
     if (email.length < 3) {
         throw new Error('The email should be at least 3 characters long');
@@ -61,7 +61,7 @@ export async function onRegister(e) {
     const formData = new FormData(e.target);
     const { email, password, repeatPassword } = Object.fromEntries(formData);
 
-    // document.getElementById('register-form').reset();
+    document.getElementById('register-form').reset();
 
     if (email.length < 3) {
         throw new Error('The email should be at least 3 characters long');
